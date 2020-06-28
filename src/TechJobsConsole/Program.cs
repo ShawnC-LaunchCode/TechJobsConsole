@@ -64,7 +64,7 @@ namespace TechJobsConsole
                     if (columnChoice.Equals("all"))
                     {
                         //Console.WriteLine("Search all fields not yet implemented.");
-                        JobData.FindByValue(searchTerm);
+                        PrintJobs(JobData.FindByValue(searchTerm));
                     }
                     else
                     {

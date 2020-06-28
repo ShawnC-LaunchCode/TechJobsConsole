@@ -58,7 +58,7 @@ namespace TechJobsConsole
 
             return jobs;
         }
-
+       
         public static List<Dictionary<string, string>> FindByValue( string test )
         {
             LoadData();
@@ -74,15 +74,10 @@ namespace TechJobsConsole
                     if (line.Value.Contains(test))
                     {
                         jobs.Add(row);
+                        continue;
                     }
-
                 }
-
             }
-
-
-
-
             return jobs;
         }
 
