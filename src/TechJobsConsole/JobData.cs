@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -54,6 +55,33 @@ namespace TechJobsConsole
                     jobs.Add(row);
                 }
             }
+
+            return jobs;
+        }
+
+        public static List<Dictionary<string, string>> FindByValue( string test )
+        {
+            LoadData();
+
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            //turn start into jobs
+            foreach(Dictionary<string,string> row in AllJobs)
+            {
+                //Console.WriteLine("Testing Line");
+                foreach (KeyValuePair<string, string> line in row)
+                {
+                    if (line.Value.Contains(test))
+                    {
+                        jobs.Add(row);
+                    }
+
+                }
+
+            }
+
+
+
 
             return jobs;
         }
@@ -138,5 +166,8 @@ namespace TechJobsConsole
 
             return rowValues.ToArray();
         }
+
+        
+
     }
 }
